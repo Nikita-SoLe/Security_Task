@@ -7,45 +7,66 @@
         body {
             font-family: Arial, sans-serif;
             padding: 20px;
+            background-color: #f2f2f2;
         }
+
         table {
             border-collapse: collapse;
             width: 100%;
+            margin-top: 20px;
         }
+
         th, td {
             border: 1px solid #dddddd;
             text-align: left;
-            padding: 8px;
+            padding: 12px;
         }
+
         th {
-            background-color: #f2f2f2;
+            background-color: #4CAF50;
+            color: white;
         }
+
         tr:nth-child(even) {
-            background-color: #f2f2f2;
+            background-color: #f9f9f9;
         }
+
         a {
             text-decoration: none;
+            display: inline-block;
         }
+
         button {
-            padding: 8px 12px;
+            padding: 10px 16px;
             border: none;
             background-color: #4CAF50;
             color: white;
             text-align: center;
             text-decoration: none;
-            display: inline-block;
             font-size: 14px;
             margin: 4px 2px;
             cursor: pointer;
             border-radius: 4px;
         }
+
         button:hover {
             background-color: #45a049;
+        }
+
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .add-button {
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
+
 <h2>User List</h2>
+
 <table>
     <tr>
         <th>Name</th>
@@ -59,7 +80,7 @@
         <td th:text="${user.lastName}"></td>
         <td th:text="${user.department}"></td>
         <td th:text="${user.salary}"></td>
-        <td>
+        <td class="actions">
             <a th:href="@{/admin/viewUser(id=${user.id})}">
                 <button>Update</button>
             </a>
@@ -69,13 +90,18 @@
         </td>
     </tr>
 </table>
-<br>
-<a th:href="@{/admin/askDetails}">
-    <button>Add new user</button>
-</a>
-<br><br>
-<a th:href="@{/logout}">
-    <button>Logout</button>
-</a>
+
+<div class="add-button">
+    <a th:href="@{/admin/askDetails}">
+        <button>Add new user</button>
+    </a>
+</div>
+
+<div class="add-button">
+    <a th:href="@{/logout}">
+        <button>Logout</button>
+    </a>
+</div>
+
 </body>
 </html>
