@@ -37,8 +37,6 @@ public class CrudController {
     @PostMapping("/createUser")
     public String createUser(@ModelAttribute("user") User user,
                              @RequestParam("role") String[] selectedRoles) {
-
-        System.out.println(selectedRoles.length);
         service.create(user, selectedRoles);
         return "redirect:/admin";
     }
